@@ -3,18 +3,23 @@ import React from 'react'
 import Heading from 'components/Heading'
 import Container from 'components/Container'
 
-import icons from './content'
 import * as S from './styles'
+import { SectionTechProps } from 'types/api'
+import { getImageUrl } from 'utils/getImageUrl'
 
-const SectionTech = () => (
+const SectionTechnology = ({ titleTech, iconTech }: SectionTechProps) => (
   <S.Wrapper>
     <Container>
-      <Heading reverseColor>Tecnologias utilizadas</Heading>
+      <Heading reverseColor>{titleTech}</Heading>
       <S.IconsContainer>
-        {icons.map(({ name, image }) => (
-          <S.Icon key={name}>
-            <S.Icons src={`img/tech/${image}`} alt={name} loading="lazy" />
-            <S.IconsName>{name}</S.IconsName>
+        {iconTech.map(({ titleIcon, icon }) => (
+          <S.Icon key={titleIcon}>
+            <S.Icons
+              src={getImageUrl(icon.url)}
+              alt={titleIcon}
+              loading="lazy"
+            />
+            <S.IconsName>{titleIcon}</S.IconsName>
           </S.Icon>
         ))}
       </S.IconsContainer>
@@ -22,4 +27,4 @@ const SectionTech = () => (
   </S.Wrapper>
 )
 
-export default SectionTech
+export default SectionTechnology
