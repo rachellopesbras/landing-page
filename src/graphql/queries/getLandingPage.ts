@@ -45,12 +45,34 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionConcepts on LandingPage {
+    SectionConcepts {
+      title
+      concepts {
+        title
+      }
+    }
+  }
+
+  fragment sectionModuls on LandingPage {
+    SectioNModels {
+      title
+      module {
+        title
+        subTitle
+        description
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
       ...header
       ...sectionAboutProject
       ...sectionTech
+      ...sectionConcepts
+      ...sectionModuls
     }
   }
 `
