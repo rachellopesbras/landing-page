@@ -4,9 +4,8 @@ import { GetStaticProps } from 'next'
 import SectionHero from 'components/SectionHero'
 import SectionAboutProject from 'components/SectionAboutProject'
 import SectionTechnology from 'components/SectionTech'
-import SectionConcepts from 'components/SectionConcepts'
 import SectionModules from 'components/SectionModules'
-import SectionAgenda from 'components/SectionAgenda'
+import SectionAgendaLD from 'components/SectionAgenda'
 import PricingBox from 'components/PricingBox'
 import SectionAboutUs from 'components/SectionAboutUs'
 import SectionReviews from 'components/SectionReviews'
@@ -24,7 +23,9 @@ const Index = ({
   SectionAbout,
   SectionTech,
   SectionConcepts,
-  SectioNModels
+  SectioNModels,
+  SectionAgenda,
+  SectionPricing
 }: LandingPageProps) => (
   <>
     <SectionHero logo={logo} header={header} />
@@ -32,8 +33,8 @@ const Index = ({
     <SectionTechnology {...SectionTech} />
     <SectionLineConcepts {...SectionConcepts} />
     <SectionModules {...SectioNModels} />
-    <SectionAgenda />
-    <PricingBox />
+    <SectionAgendaLD {...SectionAgenda} />
+    <PricingBox {...SectionPricing} />
     <SectionAboutUs />
     <SectionReviews />
     <SectionFaq />
@@ -44,8 +45,8 @@ const Index = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const { landingPage } = await client.request(GET_LANDING_PAGE)
-  const { SectioNModels } = landingPage
-  console.log(SectioNModels)
+
+  console.log(landingPage, 'gsggsgsg')
   return {
     props: {
       ...landingPage

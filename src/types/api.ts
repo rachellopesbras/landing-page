@@ -58,6 +58,22 @@ export type SectioNModulsProps = {
   module: Module[]
 }
 
+export type SectionAgendaProps = {
+  title: string
+  description: string
+}
+
+export type SectionPricingProps = {
+  totalPrice: number
+  qtdParcelas: number
+  benefits: string
+  precoPorParcela: number
+  buttonPricing: {
+    label: string
+    url: string
+  }
+}
+
 export type LandingPageProps = {
   logo: LogoProps
   header: HeaderProps
@@ -65,4 +81,6 @@ export type LandingPageProps = {
   SectionTech: SectionTechProps
   SectionConcepts: SectionConceptsProps
   SectioNModels: SectioNModulsProps
+  SectionAgenda: SectionAgendaProps
+  SectionPricing: SectionPricingProps
 }

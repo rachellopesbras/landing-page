@@ -65,6 +65,26 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionAgenda on LandingPage {
+    SectionAgenda {
+      title
+      description
+    }
+  }
+
+  fragment princingBox on LandingPage {
+    SectionPricing {
+      totalPrice
+      qtdParcelas
+      benefits
+      precoPorParcela
+      buttonPricing {
+        label
+        url
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
@@ -73,6 +93,8 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       ...sectionTech
       ...sectionConcepts
       ...sectionModuls
+      ...sectionAgenda
+      ...princingBox
     }
   }
 `
